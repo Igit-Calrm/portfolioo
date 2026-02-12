@@ -61,14 +61,15 @@ const projects = [
   {
     title: "CRM Automation Hub",
     category: "CRM & Automation",
-    description: "Custom Go High Level workflows and funnels optimized for client lead generation and automated follow-ups.",
+    description: "Custom Go High Level workflows and funnels optimized for client lead generation. I worked here as a developer, managing the technical implementation of their CRM and automation systems.",
     images: [
+      "/Screenshot 2026-02-12 183113.png",
       "https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=1000",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000"
     ],
     tags: ["Go High Level", "Automations", "Funnels"],
     github: "#",
-    demo: "#",
+    demo: "https://onemindketamine.com/",
     color: "from-purple-500 to-pink-500",
     type: "desktop",
     status: "active"
