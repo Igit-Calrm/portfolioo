@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
 import { ExternalLink, Github, Layers, Code2, Globe, Smartphone, Monitor, ChevronLeft, ChevronRight, AlertCircle } from "lucide-react";
 
@@ -282,7 +282,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
 }
 
 export default function Projects() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -293,7 +293,7 @@ export default function Projects() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 

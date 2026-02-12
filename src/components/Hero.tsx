@@ -72,7 +72,7 @@ export default function Hero() {
                 Contact Me
               </ScrollLink>
             </motion.div>
-          </div>
+          </motion.div>
 
           <div className="mt-12 flex items-center justify-center md:justify-start gap-6">
             <a href="https://github.com/Igit-Calrm" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 transition-colors">
