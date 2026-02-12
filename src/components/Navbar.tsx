@@ -12,9 +12,11 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 0);
 
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
@@ -30,8 +32,10 @@ export default function Navbar() {
   }, []);
 
   const getBackgroundColor = () => {
+    if (!mounted) return "rgba(255, 255, 255, 0)";
     if (!scrolled) return "rgba(255, 255, 255, 0)";
-    return theme === "dark" ? "rgba(15, 23, 42, 0.8)" : "rgba(255, 255, 255, 0.7)";
+    const currentTheme = resolvedTheme || theme;
+    return currentTheme === "dark" ? "rgba(15, 23, 42, 0.8)" : "rgba(255, 255, 255, 0.7)";
   };
 
   const getWidth = () => {
