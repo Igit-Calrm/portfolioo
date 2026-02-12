@@ -114,11 +114,11 @@ export default function Hero() {
               className="absolute inset-4 bg-white dark:bg-slate-800 rounded-[3rem] p-3 shadow-[0_20px_50px_rgba(8,112,184,0.2)] dark:shadow-none overflow-hidden border-4 border-white/50 dark:border-slate-700/50 backdrop-blur-sm"
             >
                <div className="w-full h-full bg-slate-100 dark:bg-slate-900 rounded-[2.5rem] flex items-center justify-center relative overflow-hidden">
-                    {/* Using a high-quality professional cartoon avatar URL - handsome with laptop */}
+                    {/* Using the high-quality professional developer image you provided */}
                     <img 
-                        src="https://api.dicebear.com/7.x/avataaars/svg?seed=Carl&mood=happy&top=shortHair&hairColor=2c1b18&clothing=hoodie&clothingColor=3c4d5b&accessories=none&facialHair=none&backgroundColor=b6e3f4" 
-                        alt="Carl Vincent Cartoon" 
-                        className="w-full h-full object-contain p-4 transform scale-110 group-hover:scale-125 transition-transform duration-700"
+                        src="/Gemini_Generated_Image_4o7y4m4o7y4m4o7y.png" 
+                        alt="Carl Vincent Developer" 
+                        className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700"
                     />
                     
                     {/* Floating Laptop Emoji for extra developer context */}
