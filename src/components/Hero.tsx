@@ -116,7 +116,7 @@ export default function Hero() {
                <div className="w-full h-full bg-slate-100 dark:bg-slate-900 rounded-[2.5rem] flex items-center justify-center relative overflow-hidden">
                     {/* Using the newest professional developer image you provided */}
                     <img 
-                        src="/Gemini_Generated_Image_vsqv8wvsqv8wvsqv.png" 
+                        src="/Screenshot 2026-02-12 185409.png" 
                         alt="Carl Vincent Developer" 
                         className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700"
                     />
