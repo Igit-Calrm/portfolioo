@@ -18,17 +18,37 @@ export default function Hero() {
           <span className="text-cyan-600 dark:text-cyan-400 font-bold tracking-widest uppercase mb-4 block text-sm md:text-base">
             Welcome to my portfolio
           </span>
-          <h1 className="text-6xl md:text-8xl font-black text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-6xl md:text-8xl font-black text-slate-900 dark:text-white mb-6 leading-tight tracking-tight"
+          >
             Hi, I'm <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-cyan-700 dark:from-cyan-400 dark:to-cyan-200">
+            <motion.span 
+              initial={{ backgroundPosition: "0% 50%" }}
+              animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+              className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-500 bg-[length:200%_auto]"
+            >
               Carl Vincent
-            </span>
-          </h1>
-          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-10 max-w-lg mx-auto md:mx-0 leading-relaxed font-medium">
+            </motion.span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-10 max-w-lg mx-auto md:mx-0 leading-relaxed font-medium"
+          >
             Web Developer & CRM Specialist passionate about building aesthetic websites and optimizing workflows.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start"
+          >
             <motion.a 
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -68,17 +88,18 @@ export default function Hero() {
         </motion.div>
 
         {/* Image/Visual */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ 
-            duration: 1, 
-            delay: 0.2,
-            type: "spring",
-            stiffness: 100
-          }}
-          className="flex-1 flex justify-center md:justify-end relative group"
-        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ 
+              duration: 1.2, 
+              delay: 0.2,
+              type: "spring",
+              stiffness: 80,
+              damping: 15
+            }}
+            className="flex-1 flex justify-center md:justify-end relative group"
+          >
           {/* Floating background elements for "Pro" look */}
           <motion.div 
             animate={{ 

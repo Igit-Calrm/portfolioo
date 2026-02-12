@@ -282,49 +282,86 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
 }
 
 export default function Projects() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        type: "spring",
+        stiffness: 100,
+        damping: 15
+      }
+    }
+  };
+
   return (
-    <section id="projects" className="py-24 bg-transparent overflow-hidden">
+    <section id="projects" className="py-24 bg-white dark:bg-slate-900 transition-colors duration-500 overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
-          <motion.div
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">
+            Previous <span className="text-cyan-500">Works</span>
+          </h2>
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-medium">
+            A selection of projects ranging from enterprise systems to high-conversion mobile applications.
+          </p>
+        </motion.div>
+
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ y: -10 }}
+              className="group relative bg-slate-50 dark:bg-slate-800/50 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-700/50 backdrop-blur-xl transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(8,112,184,0.2)]"
+            >
+              <ProjectCard project={project} index={index} />
+            </motion.div>
+          ))}
+        </motion.div>
+
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-xs font-black uppercase tracking-widest mb-6"
+            className="mt-24 text-center"
           >
-            <Layers className="w-4 h-4" />
-            Project Catalog
+            <p className="text-slate-500 dark:text-slate-400 font-medium mb-8 uppercase tracking-[0.3em] text-[10px]">Curious for more?</p>
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://github.com/Igit-Calrm" 
+              target="_blank"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-[2rem] font-black text-sm uppercase tracking-widest hover:shadow-2xl transition-all shadow-xl"
+            >
+              <Globe className="w-5 h-5" />
+              View Github Repository
+            </motion.a>
           </motion.div>
-          <h2 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter">
-            Previous <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">Works</span>
-          </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto rounded-full" />
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
-        </div>
-
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="mt-24 text-center"
-        >
-          <p className="text-slate-500 dark:text-slate-400 font-medium mb-8 uppercase tracking-[0.3em] text-[10px]">Curious for more?</p>
-          <motion.a 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="https://github.com/Igit-Calrm" 
-            target="_blank"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-[2rem] font-black text-sm uppercase tracking-widest hover:shadow-2xl transition-all shadow-xl"
-          >
-            <Globe className="w-5 h-5" />
-            View Github Repository
-          </motion.a>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }
