@@ -97,12 +97,13 @@ const projects = [
     category: "Financial Services",
     description: "A secure and scalable insurance platform for managing policies, claims, and client documentation.",
     images: [
+      "/Screenshot 2026-02-12 183456.png",
       "/30e5b192-91bf-4a2a-81f6-72c5ad0931eb.jpg",
       "/a9c0b1ce-3604-4aee-a8bd-c5a2ce1c76cd.jpg"
     ],
     tags: ["React", "TypeScript", "Tailwind"],
     github: "#",
-    demo: "#",
+    demo: "https://uat.sureone.ph/",
     color: "from-orange-500 to-red-500",
     type: "desktop",
     status: "active"
@@ -152,17 +153,15 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
 
         {/* Visual/Image Section (Slideshow) */}
         <div className="relative h-64 overflow-hidden bg-slate-100 dark:bg-slate-950">
-          {/* Blurred background for mobile apps to fill space */}
-          {project.type === 'mobile' && (
-            <div 
-              className="absolute inset-0 opacity-30 blur-2xl scale-110"
-              style={{ 
-                backgroundImage: `url(${project.images[currentImage]})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            />
-          )}
+          {/* Blurred background for apps to fill space */}
+          <div 
+            className="absolute inset-0 opacity-30 blur-2xl scale-110"
+            style={{ 
+              backgroundImage: `url(${project.images[currentImage]})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
 
           <AnimatePresence mode="wait">
             <motion.img
@@ -172,9 +171,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.5 }}
-              className={`w-full h-full relative z-10 ${
-                project.type === 'mobile' ? 'object-contain p-4' : 'object-cover'
-              }`}
+              className="w-full h-full relative z-10 object-contain p-6"
             />
           </AnimatePresence>
           
